@@ -1,0 +1,86 @@
+
+
+/* todo menos el jumbotron obtienen espacio a los lados para las vista en movil*/
+.header,
+.marketing,
+.footer {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+/* Cabecera de la pagina customizada */
+.header {
+  padding-bottom: 1rem;
+  border-bottom: .05rem solid #e5e5e5;
+}
+
+/* hace la cabecera masthead misma altura que la de navegacion*/
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 3rem;
+}
+
+/* pie de pagina customizado*/
+.footer {
+  padding-top: 1.5rem;
+  color: #777;
+  border-top: .05rem solid #e5e5e5;
+}
+
+/* Contenedor customizado*/
+@media (min-width: 48em) {
+  .container {
+    max-width: 46rem;
+  }
+}
+.container-narrow > hr {
+  margin: 2rem 0;
+}
+
+/* mensaje principal y boton de unirse*/
+.jumbotron {
+  text-align: center;
+  border-bottom: .05rem solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: .75rem 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* soporta contenido de marcado */
+.marketing {
+  margin: 3rem 0;
+}
+.marketing p + h4 {
+  margin-top: 1.5rem;
+}
+
+/* respuesta al tamaño de la pantalla desde 48em para arriba*/
+@media screen and (min-width: 48em) {
+  /* quitamos el padding que pusimos antes */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* espacio en el masthead */
+  .header {
+    margin-bottom: 2rem;
+  }
+
+  /* quitamos el borde del boton en el jumbotron para un efecto visual */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+.btn{
+  text-decoration:none;
+  cursor: pointer;
+}
+
+.titulo { color: #0056b3; font-family: 'Lobster', cursive; font-size: 36px; font-weight: normal;
+  line-height: 48px; margin: 0 0 18px; text-shadow: 1px 0 0 #fff; margin-bottom: 0px; text-align: center;}

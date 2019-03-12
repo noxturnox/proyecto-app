@@ -1,0 +1,42 @@
+.creditos {
+  position: relative;
+  text-align: center;
+  background-color: aquamarine;
+  color: black;
+  margin-top: 0px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  font-style: italic;
+  font-size: 10pt;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+}
+
+.hola {
+  display: none;
+}
+
+@media (max-width: 48em) {
+  nav ul {
+    display: none;
+  }
+  .hola {
+    display: block;
+    float: right;
+  }
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  /*overflow: hidden;*/
+  z-index: 10;
+  width: 100%;
+  background-color: white;
+}
+
+ul {
+  margin-top: 0px;
+}

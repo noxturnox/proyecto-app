@@ -1,0 +1,144 @@
+﻿<header *ngIf="currentUser" class="header clearfix sticky">
+  <nav>
+    <ul class="nav nav-pills float-right chao">
+      <li class="nav-item">
+        <a [routerLink]="['/']"
+          ><button type="button" class="btn btn-primary">
+            Inicio
+          </button></a
+        >
+      </li>
+      <li class="nav-item">
+        <button
+          *ngIf="isAdmin && comprobar"
+          #addPost
+          type="button"
+          class="btn btn-link"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Agregar
+        </button>
+      </li>
+      <li *ngIf="isAdmin" class="nav-item">
+        <button
+          type="button"
+          (click)="admin()"
+          class="btn btn-link"
+          data-toggle="modal"
+        >
+          Administración
+        </button>
+      </li>
+      <li class="nav-item">
+        <button
+          type="button"
+          class="btn btn-link"
+          data-toggle="modal"
+          data-target="#acercaModal"
+        >
+          Sobre Nosotros
+        </button>
+      </li>
+      <li class="nav-item">
+        <button (click)="logout()" type="button" class="btn btn-link">
+          Salir
+        </button>
+      </li>
+    </ul>
+
+    <div class="btn-group hola">
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        Ir a...
+      </button>
+      <div class="dropdown-menu">
+        <a [routerLink]="['/']" class="dropdown-item">Inicio</a>
+        <a
+          class="dropdown-item"
+          *ngIf="isAdmin && comprobar"
+          #addPost
+          class="dropdown-item"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          >Agregar</a
+        >
+        <a class="dropdown-item" (click)="admin()">Administración</a>
+        <a class="dropdown-item" data-toggle="modal" data-target="#acercaModal"
+          >Sobre Nosotros</a
+        >
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" (click)="logout()">Salir</a>
+      </div>
+    </div>
+    <h3 class="text-muted" style="margin-top: 5px;">App Blog</h3>
+  </nav>
+</header>
+
+<div class="jumbotron" style="padding-top: 10px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <alert></alert>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="creditos">
+  <p>Bienvenidos a la Aplicación Web de Ricardo & Gabino</p>
+  <p>@Copyright ASIR2 - 2019</p>
+</div>
+
+<div
+  class="modal fade"
+  id="acercaModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="acercaModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div
+        class="modal-header"
+        style="background-color:rgb(199, 20, 20); color: blanchedalmond; font-style: oblique"
+      >
+        <h5 class="modal-title" id="acercaModalLabel">Sobre Nosotros</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="background-color: black; color: white;">
+        <p>
+          Somos dos locos, alumnos de Administración de Sistemas
+          Informáticos en red (ASIR).
+        </p>
+
+        <p>
+          Estamos acabando 2º año y como proyecto estamos haciendo una
+          Aplicación Web con Angular, nos hemos dado de cabezasos de lo lindo.
+        </p>
+      </div>
+      <div
+        class="modal-footer"
+        style="background-image: url('./../assets/fire.gif'); background-size: contain; border-top-width: 0ch"
+      >
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

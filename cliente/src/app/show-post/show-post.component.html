@@ -1,0 +1,64 @@
+<p style="margin-bottom: 10px;">
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Buscar...
+    </a>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body" style="background-color: #e9ecef; border: 0px; padding: 0px;">
+        <form class="example-form" >
+            <input type="text" [(ngModel)]="userFilter.title" placeholder="Barra de búsqueda" name="hola" class="form-control">
+        </form>
+    </div>
+</div>
+
+<div class="list-group">
+  <br>
+    <a *ngFor="let post of posts | filterBy: userFilter" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="prueba float-right" *ngIf="isAdmin">
+        <i title="Edit" class="fas fa-edit" (click)="editPost(post)" aria-hidden="true"></i>
+        <i (click)="setDelete(post)" data-toggle="modal" data-target="#deleteModal" title="Delete" class="fas fa-trash-alt" aria-hidden="true"></i>
+      </div>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                <h5 class="mb-1">{{post.title}}</h5>
+            </mat-panel-title>
+            <mat-panel-description>
+                <p class="mb-1">{{post.description | slice:0:40}}...</p>
+            </mat-panel-description>
+            
+        </mat-expansion-panel-header>
+          <p class="mb-1">{{post.description}}</p>
+      </mat-expansion-panel>
+      
+      <div class="float-left">
+          <small><span>Fecha de creación: {{post.createdDate | date}}</span></small>
+      </div>
+
+      <div class="float-right">
+        <a (click)="sendMessage(post)" [routerLink]="['/post']">Abrir</a>
+      </div>
+      
+    </a>
+    
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Delete Post</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  Are you sure ?
+</div>
+<div class="modal-footer">
+  <button #closeBtn (click)="unsetDelete()" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+  <button (click)="deletePost()" type="button" class="btn btn-primary">Delete</button>
+</div>
+</div>
+</div>
+</div>
